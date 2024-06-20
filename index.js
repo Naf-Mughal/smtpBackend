@@ -114,7 +114,7 @@ app.post('/deleteEmail', async (req, res) => {
         });
 
         if (response.data.status === 1) {
-            res.status(200).json(response?.data?.data);
+            res.status(200).json(response.data.data);
         } else {
             res.status(400).json(response.data);
         }
