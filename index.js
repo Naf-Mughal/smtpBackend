@@ -140,6 +140,10 @@ app.get('/profile', (req, res) => {
     })
 });
 
+app.get('/', (req, res) => {
+    res.json("app started")
+});
+
 // app.listen('4000', () => {
 //     console.log("app started");
 //     // console.log(Register_Route)
@@ -147,6 +151,4 @@ app.get('/profile', (req, res) => {
 
 const secureServer = https.createServer(options, app);
 
-secureServer.listen('4000', (req, res) => {
-    res.json("app started");
-})
+secureServer.listen('4000')
