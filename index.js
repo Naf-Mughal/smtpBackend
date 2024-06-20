@@ -13,8 +13,8 @@ const dbURL = "mongodb+srv://nafeelaaqib:K0tJZsEHXTvMOxpb@cluster0.jfsbu9f.mongo
 app.use(cors());
 app.use(express.json());
 
-var key = fs.readFileSync(__dirname + '/../certs/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/../certs/selfsigned.crt');
+var key = fs.readFileSync(__dirname + '/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
 var options = {
     key: key,
     cert: cert
