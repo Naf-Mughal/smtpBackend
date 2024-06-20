@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 var key = fs.readFileSync(__dirname + '/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+var cert = fs.readFileSync(__dirname + '/selfsigned.cr');
 var options = {
     key: key,
     cert: cert
