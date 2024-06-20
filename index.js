@@ -3,13 +3,21 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require("./modals/User")
 const bcrypt = require('bcrypt');
+const https = require('https')
 const salt = 10;
 const app = express();
 const jwt = require('jsonwebtoken');
 const secret = "gsjhkldafsdghfbjkladsbvjklbxcljnvzbjhzsdbjlvsjhdfbgasjkdfh";
 const dbURL = "mongodb+srv://nafeelaaqib:K0tJZsEHXTvMOxpb@cluster0.jfsbu9f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+
+var key = fs.readFileSync(__dirname + '/../certs/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/../certs/selfsigned.crt');
+var options = {
+    key: key,
+    cert: cert
+};
 
 mongoose.connect(dbURL);
 
@@ -131,7 +139,13 @@ app.get('/profile', (req, res) => {
     })
 });
 
-app.listen('4000', () => {
-    console.log("app started");
-    // console.log(Register_Route)
+// app.listen('4000', () => {
+//     console.log("app started");
+//     // console.log(Register_Route)
+// })
+
+const secureServer = https.createServer(options, app);
+
+secureServer.listen('4000', (req, res) => {
+    res.json("app started");
 })
