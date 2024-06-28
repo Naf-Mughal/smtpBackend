@@ -19,9 +19,9 @@ mongoose.connect(dbURL);
 const axios = require('axios');
 
 // Replace these with your actual cPanel details
-const cpanelUrl = 'https://hwsrv-1223902.hostwindsdns.com:2083';
+const cpanelUrl = 'https://localhost:2083';
 const cpanelUser = 'salesdriver';
-const cpanelToken = 'CC8IC50H1B1RJISRRW81K21DFV4ICTIR';
+const cpanelToken = 'QT1SZCDCBDI4NCRXJXICB6BWYWH2YAX1';
 const emailQuota = 1024; // Quota in MB
 
 router.post("/register", async (req, res) => {
