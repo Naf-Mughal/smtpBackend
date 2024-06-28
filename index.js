@@ -19,7 +19,7 @@ mongoose.connect(dbURL);
 const axios = require('axios');
 
 // Replace these with your actual cPanel details
-const cpanelUrl = 'https://localhost:2083';
+const cpanelUrl = 'https://hwsrv-1223902.hostwindsdns.com:2083';
 const cpanelUser = 'salesdriver';
 const cpanelToken = 'QT1SZCDCBDI4NCRXJXICB6BWYWH2YAX1';
 const emailQuota = 1024; // Quota in MB
