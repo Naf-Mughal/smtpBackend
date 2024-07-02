@@ -9,7 +9,7 @@ const salt = 10;
 const app = express();
 const jwt = require('jsonwebtoken');
 const secret = "gsjhkldafsdghfbjkladsbvjklbxcljnvzbjhzsdbjlvsjhdfbgasjkdfh";
-const dbURL = "mongodb+srv://nafeelaaqib:K0tJZsEHXTvMOxpb@cluster0.jfsbu9f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const dbURL = "mongodb+srv://nafeelaaqib:dCT1D8v6m9ow0jTn@cluster0.ggw23qh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 app.use(cors());
 app.use(express.json())
 
