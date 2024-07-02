@@ -9,11 +9,11 @@ const salt = 10;
 const app = express();
 const jwt = require('jsonwebtoken');
 const secret = "gsjhkldafsdghfbjkladsbvjklbxcljnvzbjhzsdbjlvsjhdfbgasjkdfh";
-const dbURL = "mongodb+srv://nafeelaaqib:dCT1D8v6m9ow0jTn@cluster0.ggw23qh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+// const dbURL = "mongodb+srv://nafeelaaqib:dCT1D8v6m9ow0jTn@cluster0.ggw23qh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 app.use(cors());
 app.use(express.json())
 
-mongoose.connect(dbURL);
+// mongoose.connect(dbURL);
 
 
 const axios = require('axios');
@@ -24,30 +24,30 @@ const cpanelUser = 'salesdriver';
 const cpanelToken = 'QT1SZCDCBDI4NCRXJXICB6BWYWH2YAX1';
 const emailQuota = 1024; // Quota in MB
 
-router.post("/register", async (req, res) => {
-    const { username, password } = req.body
-    const userDoc = await User.create({ username: username, password: bcrypt.hashSync(password, salt) })
-    res.json(userDoc)
-})
+// router.post("/register", async (req, res) => {
+//     const { username, password } = req.body
+//     const userDoc = await User.create({ username: username, password: bcrypt.hashSync(password, salt) })
+//     res.json(userDoc)
+// })
 
-router.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    const userDoc = await User.findOne({ username });
-    console.log(userDoc, username)
+// router.post('/login', async (req, res) => {
+//     const { username, password } = req.body;
+//     const userDoc = await User.findOne({ username });
+//     console.log(userDoc, username)
 
-    if (userDoc) {
-        const passOk = bcrypt.compareSync(password, userDoc.password);
-        if (passOk) {
-            jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
-                if (err) throw err;
-                res.cookie('token', token).json({ id: userDoc._id, username });
-            })
-        }
-    }
-    else {
-        res.status(400).json('Wrong credentials')
-    }
-});
+//     if (userDoc) {
+//         const passOk = bcrypt.compareSync(password, userDoc.password);
+//         if (passOk) {
+//             jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
+//                 if (err) throw err;
+//                 res.cookie('token', token).json({ id: userDoc._id, username });
+//             })
+//         }
+//     }
+//     else {
+//         res.status(400).json('Wrong credentials')
+//     }
+// });
 
 router.post('/addEmail', async (req, res) => {
     const { user, domain, password } = req.body
